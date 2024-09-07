@@ -158,6 +158,26 @@
         .announcement strong {
             color: #00ffff;
         }
+
+        section {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+
+
+        .alternate-section {
+            background-color: rgba(255, 0, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+        }
+
+        .alternate-section h2 {
+            color: #00ffff;
+            text-shadow: 2px 2px #ff00ff;
+        }
     </style>
 </head>
 
@@ -193,24 +213,19 @@
                 <p>6:30 PM sharp: Run begins</p>
             </section>
 
-            <section>
-                <h2>Our Awesome 5k Routes</h2>
-                <p>Check out some of our gnarly running routes:</p>
+            <section class="alternate-section">
+                <h2>Recommended 5k Route</h2>
+                <p>Check out our gnarly suggested route, but remember - you can choose your own adventure!</p>
                 <div class="route-container">
                     <div class="route">
-                        <img src="assets/routenorth.png" alt="Running Route 1">
-                        <p class="caption">Route North</p>
-                    </div>
-                    <div class="route">
-                        <img src="assets/routesouth.png" alt="Running Route 2">
-                        <p class="caption">Route South</p>
+                        <img src="assets/routenorth.png" alt="Recommended Running Route">
+                        <p class="caption">Suggested 5k Route</p>
                     </div>
                 </div>
+                <p>Feel free to modify this route or create your own path. The journey is yours to customize!</p>
             </section>
 
-
-
-            <section class="about-section">
+            <section>
                 <h2>About Us</h2>
                 <div class="info-boxes">
                     <div class="info-box">
@@ -236,7 +251,7 @@
 
             <section class="neon-border">
                 <h2>Join Us!</h2>
-                <p>Every Saturday at 8 AM, Sunset Park</p>
+                <p></p>
                 <button class="cta-button">Sign Up Now!</button>
             </section>
         </main>
