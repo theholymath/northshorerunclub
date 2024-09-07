@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>80s Retro Run Club</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff00ff;
+            text-shadow: 2px 2px #00ffff;
+        }
+
+        a {
+            color: #ff00ff;
+            text-decoration: none;
+            text-shadow: 1px 1px #00ffff;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            color: #00ffff;
+            text-shadow: 1px 1px #ff00ff;
+        }
+
+        .neon-border {
+            border: 3px solid #0ff;
+            box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            background-color: #ff00ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #00ffff;
+            color: #000;
+        }
+
+        /* Remove the header img styles */
+        header {
+            margin-bottom: 20px;
+            /* Add some space below the header */
+        }
+
+        .route-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .route {
+            margin: 20px;
+            width: calc(50% - 40px);
+        }
+
+        .route img {
+            width: 100%;
+            height: auto;
+        }
+
+        .route .caption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 10px;
+            color: #00ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>North Shore Pub Run Club</h1>
+        </header>
+
+        <main>
+            <section class="neon-border">
+                <h2>Join the North Shore Running Community!</h2>
+                <p>A running community for all levels of runners! Based in Shorewood open to all!</p>
+                <img src="assets/foxholeLocation.png" alt="Run Club Meetup">
+                <h2>Every Wednesday Run starts at 6:30 PM!</h2>
+                <h2>Meet at the <a href="https://www.foxholeshorewood.com">Foxhole Bar and Grill</a> in Shorewood
+                    and stay for beer and food.</h2>
+            </section>
+            <br>
+            <hr>
+            <br>
+
+            <section>
+                <h2>Our Awesome 5k Routes</h2>
+                <p>Check out some of our gnarly running routes:</p>
+                <div class="route-container">
+                    <div class="route">
+                        <img src="assets/routenorth.png" alt="Running Route 1">
+                        <p class="caption">Route North</p>
+                    </div>
+                    <div class="route">
+                        <img src="assets/routesouth.png" alt="Running Route 2">
+                        <p class="caption">Route South</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="neon-border">
+                <h2>Join Us!</h2>
+                <p>Every Saturday at 8 AM, Sunset Park</p>
+                <button class="cta-button">Sign Up Now!</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 80s Retro Run Club. Stay rad!</p>
+        </footer>
+    </div>
+</body>
+
+</html>
