@@ -94,13 +94,77 @@
             margin-top: 10px;
             color: #00ffff;
         }
+
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .info-box {
+            margin: 20px;
+            width: calc(33.33% - 20px);
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #fff, inset 0 0 10px #fff;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            color: #000;
+        }
+
+        .announcement {
+            background-color: #ff00ff;
+            color: #000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        .announcement h2 {
+            color: #00ffff;
+            text-shadow: 2px 2px #000;
+        }
+
+        .announcement .highlight {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 1px 1px #000;
+        }
+
+        .announcement ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .announcement li {
+            margin-bottom: 10px;
+        }
+
+        .announcement strong {
+            color: #00ffff;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>North Shore Pub Run Club</h1>
+            <h1>North Shore Pub Run</h1>
         </header>
 
         <main>
@@ -115,6 +179,19 @@
             <br>
             <hr>
             <br>
+
+            <section class="announcement">
+                <h2>🚨 Important Announcement 🚨</h2>
+                <p class="highlight">Inaugural Run starts September 18th!</p>
+                <ul>
+                    <li>All ages and abilities welcome</li>
+                    <li>Runners with strollers encouraged</li>
+                    <li>Walk, jog, or run - it's up to you!</li>
+                </ul>
+                <p><strong>Schedule:</strong></p>
+                <p>6:00 - 6:30 PM: Arrival and sign-up</p>
+                <p>6:30 PM sharp: Run begins</p>
+            </section>
 
             <section>
                 <h2>Our Awesome 5k Routes</h2>
@@ -131,6 +208,32 @@
                 </div>
             </section>
 
+
+
+            <section class="about-section">
+                <h2>About Us</h2>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <img src="assets/Nike Sneaker Interpretation.webp" alt="Inclusive Icon" class="info-icon">
+                        <h3>Inclusive</h3>
+                        <p>We welcome runners of all ages and abilities. Whether you're a seasoned marathoner or taking
+                            your first steps, there's a place for you in our community.</p>
+                    </div>
+                    <div class="info-box">
+                        <img src="assets/Running Sneakers.webp" alt="Fun Icon" class="info-icon">
+                        <h3>Fun</h3>
+                        <p>Running is more than exercise—it's a celebration! We create a vibrant, supportive atmosphere
+                            where friendships flourish and every run is an adventure.</p>
+                    </div>
+                    <div class="info-box">
+                        <img src="assets/Phil Knight Bill Bowerman intro.webp" alt="Fit Icon" class="info-icon">
+                        <h3>Fit</h3>
+                        <p>Achieve your fitness goals at your own pace. Our diverse routes and supportive members help
+                            you stay motivated and improve your health, one step at a time.</p>
+                    </div>
+                </div>
+            </section>
+
             <section class="neon-border">
                 <h2>Join Us!</h2>
                 <p>Every Saturday at 8 AM, Sunset Park</p>
@@ -139,7 +242,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2023 80s Retro Run Club. Stay rad!</p>
+            <p>&copy; 2024 80s Retro Run Club. Stay rad!</p>
         </footer>
     </div>
 </body>
