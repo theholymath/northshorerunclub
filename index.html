@@ -167,8 +167,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
-
-
         .alternate-section {
             background-color: rgba(255, 0, 255, 0.1);
             box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
@@ -177,6 +175,35 @@
         .alternate-section h2 {
             color: #00ffff;
             text-shadow: 2px 2px #ff00ff;
+        }
+
+        .instructions-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .instruction-column {
+            width: 48%;
+            text-align: left;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .instruction-column h3 {
+            color: #ff00ff;
+            text-shadow: 1px 1px #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .instruction-column ol {
+            padding-left: 20px;
+        }
+
+        .instruction-column li,
+        .instruction-column p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -195,6 +222,28 @@
                 <h2>Every Wednesday Run starts at 6:30 PM!</h2>
                 <h2>Meet at the <a href="https://www.foxholeshorewood.com">Foxhole Bar and Grill</a> in Shorewood
                     and stay for beer and food.</h2>
+                <div class="instructions-container">
+                    <div class="instruction-column">
+                        <h3>JOINING US IS FREE AND EASY:</h3>
+                        <ol>
+                            <li>Arrive at Foxhole on Wednesdays at 6pm</li>
+                            <li>Sign in with Ryan (just ask!)</li>
+                            <li>Group pic and run start at 6:30 sharp!</li>
+                            <li>Follow the route to the Oak Leaf Trail and back</li>
+                            <li>Finish at Foxhole</li>
+                            <li>All night happy hour at the AFTERPARTY!</li>
+                        </ol>
+                    </div>
+                    <div class="instruction-column">
+                        <h3>RUNNING ROUTE</h3>
+                        <p>We begin at Foxhole (4144 N Oakland Ave). Run west on the sidewalk of Olive to N Wilson Dr.
+                            Cross at the crosswalk on Wilson and hop on the Oak Leaf Trail. You may run in either
+                            direction on Oak Leaf and
+                            return on Olive to Oakland, than back to Foxhole.</p>
+                        <p>If you go north until Hampton, the route is approximately 5k. If you go south to Locust, the
+                            route is about 4 miles.</p>
+                    </div>
+                </div>
             </section>
             <br>
             <hr>
