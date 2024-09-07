@@ -21,12 +21,7 @@ We have two awesome 5k routes:
 
 Check out our website for detailed maps of these routes!
 
-## Saturday Runs
 
-In addition to our Wednesday runs, we also meet every Saturday:
-
-- **Time**: 8:00 AM
-- **Location**: Sunset Park
 
 ## Join Us
 
