@@ -214,6 +214,33 @@
         .instruction-column p {
             margin-bottom: 10px;
         }
+
+        /* Add any specific styles for the weather forecast here */
+        .forecast-container {
+            margin-top: 20px;
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .forecast-header {
+            font-size: 2em;
+            color: #00ffff;
+            text-shadow: 1px 1px #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        .forecast-icon {
+            width: 100px;
+            height: auto;
+        }
+
+        .forecast-details {
+            color: #fff;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -268,8 +295,8 @@
             <br>
 
             <section class="announcement">
-                <h2>🚨 Important Announcement 🚨</h2>
-                <p class="highlight">NEW ROUTE THIS WEEK!!!!!!!!</p>
+                <!-- <h2>🚨 Important Announcement 🚨</h2> -->
+                <p class="highlight">NEW ROUTE THIS WEEK!</p>
                 <p class="highlight">Run Starts at 6:15 PM!</p>
                 <ul>
                     <li>All ages and abilities welcome</li>
@@ -279,8 +306,12 @@
                 <p><strong>Schedule:</strong></p>
                 <p>6:00 - 6:15 PM: Arrival and sign-up</p>
                 <p>6:15 PM sharp: Run begins</p>
-                <p><strong>Forecast, Wednesday, Oct 23 6:00 PM:</strong></p>
-                <img src="assets/10_23_24_weather.png" alt="Forecast" style="width: 100%; height: auto;">
+                <div class="container">
+                    <h2>Shorewood Weather Forecast</h2>
+                    <div id="forecast" class="forecast-container">
+                        <!-- Weather forecast will be displayed here -->
+                    </div>
+                </div>
             </section>
 
             <br>
@@ -325,6 +356,7 @@
             <section class="neon-border">
                 <h2>Join Us!</h2>
 
+
                 <p></p>
                 <!-- <button class="cta-button">Sign Up Now!</button> -->
             </section>
@@ -336,5 +368,55 @@
     </div>
 
 </body>
+<script>
+    async function getWeatherForecast() {
+        try {
+            // Step 1: Get the grid forecast endpoint for Shorewood, WI
+            const pointsResponse = await fetch('https://api.weather.gov/points/43.0945,-87.8884');
+            const pointsData = await pointsResponse.json();
+            const forecastUrl = pointsData.properties.forecast;
+
+            // Step 2: Get the forecast data from the endpoint
+            const forecastResponse = await fetch(forecastUrl);
+            const forecastData = await forecastResponse.json();
+            const periods = forecastData.properties.periods;
+
+            // Step 3: Find the forecast for the next Wednesday at 6 PM
+            const today = new Date();
+            let nextWednesday = new Date();
+            nextWednesday.setDate(today.getDate() + ((3 + 7 - today.getDay()) % 7)); // Find next Wednesday
+            nextWednesday.setHours(18, 0, 0, 0); // Set time to 6 PM
+
+            // Step 4: Find the appropriate forecast period
+            const forecastPeriod = periods.find(period => {
+                const periodStart = new Date(period.startTime);
+                return periodStart.getDay() === nextWednesday.getDay() && periodStart.getHours() === nextWednesday.getHours();
+            });
+
+            // Step 5: Display the forecast
+            if (forecastPeriod) {
+                const forecastElement = document.getElementById('forecast');
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = nextWednesday.toLocaleDateString(undefined, options);
+                forecastElement.innerHTML = `
+                    <div class="forecast-header">Forecast for ${formattedDate} at 6 PM</div>
+                    <img src="${forecastPeriod.icon}" alt="Weather icon" class="forecast-icon">
+                    <div class="forecast-details">
+                        ${forecastPeriod.shortForecast}<br>
+                        Temperature: ${forecastPeriod.temperature}&deg; ${forecastPeriod.temperatureUnit}
+                    </div>
+                `;
+            } else {
+                document.getElementById('forecast').innerHTML = '<div class="forecast-details">Forecast data not available.</div>';
+            }
+        } catch (error) {
+            console.error('Error fetching the weather data:', error);
+            document.getElementById('forecast').innerHTML = '<div class="forecast-details">Failed to fetch the weather data. Please try again later.</div>';
+        }
+    }
+
+    // Call the function to fetch and display the weather forecast
+    getWeatherForecast();
+</script>
 
 </html>
