@@ -256,6 +256,7 @@
                 <p>A running community for all levels of runners! Based in Shorewood open to all!</p>
                 <img src="assets/foxholeLocation_smaller.png" alt="Run Club Meetup">
                 <h2>Every Wednesday Run starts at 6:15 PM!</h2>
+                <h1>Last Run of Season: November 6, 2024</h1>
                 <h2>Meet at the <a href="https://www.foxholeshorewood.com">Foxhole Craft Beer Shop & Kitchen</a> in
                     Shorewood
                     and stay for beer and food and fun.</h2>
@@ -296,7 +297,7 @@
 
             <section class="announcement">
                 <!-- <h2>🚨 Important Announcement 🚨</h2> -->
-                <p class="highlight">NEW ROUTE THIS WEEK!</p>
+                <p class="highlight">Final Run of season, Nov. 6, 2024</p>
                 <p class="highlight">Run Starts at 6:15 PM!</p>
                 <ul>
                     <li>All ages and abilities welcome</li>
@@ -372,7 +373,7 @@
     async function getWeatherForecast() {
         try {
             // Step 1: Get the grid forecast endpoint for Shorewood, WI
-            const pointsResponse = await fetch('https://api.weather.gov/points/43.0945,-87.8884');
+            const pointsResponse = await fetch('https://api.weather.gov/points/43.0892,-87.8876');
             const pointsData = await pointsResponse.json();
             const forecastUrl = pointsData.properties.forecast;
 
