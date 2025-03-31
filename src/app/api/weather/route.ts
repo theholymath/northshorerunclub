@@ -39,6 +39,7 @@ export async function GET() {
 
         // Step 3: Find the forecast for the next Wednesday at 6 PM
         const today = new Date();
+        // eslint-disable-next-line prefer-const
         let nextWednesday = new Date();
         nextWednesday.setDate(today.getDate() + ((3 + 7 - today.getDay()) % 7)); // Find next Wednesday (3 is Wednesday)
         nextWednesday.setHours(18, 0, 0, 0); // Set time to 6 PM

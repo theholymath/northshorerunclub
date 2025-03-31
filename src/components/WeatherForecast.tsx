@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SWRConfig, useSWRConfig } from 'swr';
 import useSWR from 'swr/immutable';
 import Image from 'next/image';
 import { NeonBox } from './NeonBox';

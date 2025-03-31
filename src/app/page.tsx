@@ -77,7 +77,7 @@ export default function Home() {
           <ul className="list-none space-y-2 text-white mb-6">
             <li>✓ All ages and abilities welcome</li>
             <li>✓ Runners with strollers encouraged</li>
-            <li>✓ Walk, jog, or run - it's up to you!</li>
+            <li>✓ Walk, jog, or run - it&apos;s up to you!</li>
           </ul>
 
           <div className="mb-4 bg-black bg-opacity-80 p-4 rounded border border-neon-cyan-accessible">
