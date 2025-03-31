@@ -3,6 +3,17 @@ import { NextResponse } from 'next/server';
 // Cache the weather forecast for 1 hour
 export const revalidate = 3600;
 
+// Define the structure of a weather period object from the API
+interface WeatherPeriod {
+    startTime: string;
+    endTime: string;
+    temperature: number;
+    temperatureUnit: string;
+    shortForecast: string;
+    icon: string;
+    // Add other properties if needed
+}
+
 export async function GET() {
     try {
         // Define headers required by the Weather.gov API
@@ -46,7 +57,7 @@ export async function GET() {
 
         // Step 4: Find the appropriate forecast period
         // Using the same logic as the original implementation
-        let forecastPeriod = periods.find(period => {
+        let forecastPeriod = periods.find((period: WeatherPeriod) => {
             const periodStart = new Date(period.startTime);
             return periodStart.getDay() === nextWednesday.getDay() &&
                 periodStart.getHours() >= 12; // Find Wednesday evening
