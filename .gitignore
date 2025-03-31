@@ -1,2 +1,13 @@
 *DS_Store*
 development
+node_modules
+node_modules
+.next
+*.next
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.test
