@@ -1,34 +1,36 @@
-# North Shore Pub Run Club
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Welcome to the North Shore Pub Run Club, a vibrant running community for all levels of runners based in Shorewood and open to all!
+## Getting Started
 
-## About Us
+First, run the development server:
 
-We are a community-driven running club that combines the joy of running with the pleasure of socializing. Our club is perfect for runners of all levels, from beginners to seasoned athletes.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Weekly Run
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **When**: Every Wednesday at 6:30 PM
-- **Where**: Meet at the [Foxhole Bar and Grill](https://www.foxholeshorewood.com) in Shorewood
-- **What**: Join us for a run followed by beer and food at the Foxhole
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Our Routes
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-We have two awesome 5k routes:
+## Learn More
 
-1. Route North
-2. Route South
+To learn more about Next.js, take a look at the following resources:
 
-Check out our website for detailed maps of these routes!
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
-## Join Us
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Whether you're a seasoned runner or just starting out, we'd love to have you join our community. Come for the run, stay for the fun!
-
-## Contact
-
-For more information, visit our website or reach out to us on social media.
-
-Stay rad and keep running!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
