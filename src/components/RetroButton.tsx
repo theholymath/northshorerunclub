@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface RetroButtonProps {
     children: React.ReactNode;
@@ -35,7 +35,7 @@ export function RetroButton({
 
     const buttonStyles = `${baseStyles} ${colorStyles[color]} ${className}`;
 
-    const glowAnimation = {
+    const glowAnimation: Variants = {
         glow: {
             boxShadow: color === 'pink'
                 ? '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff'
