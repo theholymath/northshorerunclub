@@ -30,11 +30,9 @@
 }
 
 body {
-  background: var(--true-black);
+  background: #121224;
   color: var(--foreground);
   font-family: 'Courier New', monospace;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 1) 100%);
   background-attachment: fixed;
 }
 
