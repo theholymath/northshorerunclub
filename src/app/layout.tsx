@@ -34,7 +34,7 @@ export default function RootLayout({
           </div>
 
           <div className="min-h-screen flex flex-col relative z-10">
-            <main className="container mx-auto px-4 max-w-4xl flex-grow py-8">
+            <main className="container mx-auto px-4 max-w-5xl flex-grow py-8">
               {children}
             </main>
             <Footer />

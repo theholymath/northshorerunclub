@@ -101,3 +101,21 @@ html {
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Styles for the hero section background */
+.hero-section-bg {
+  /* Layer a less opaque dark blue gradient over the image */
+  background-image: linear-gradient(rgba(18, 18, 36, 0.65), rgba(18, 18, 36, 0.75)), url('/assets/9_18_24_group_photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* Add parallax effect */
+  background-color: transparent;
+  /* Override default Section bg color */
+}
+
+/* Remove the previous override or adjust if needed */
+/* .hero-section-bg.bg-opacity-90 {
+  background-color: transparent !important; 
+} */

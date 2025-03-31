@@ -2,6 +2,8 @@
 development
 node_modules
 node_modules
+.next
+*.next
 .env
 .env.local
 .env.development.local
