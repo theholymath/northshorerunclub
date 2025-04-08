@@ -19,6 +19,8 @@ export function InfoCard({
     iconAlt,
     className = '',
 }: InfoCardProps) {
+    const safeDescription = description.replace(/'/g, "&apos;");
+
     return (
         <motion.div
             className={`bg-black bg-opacity-95 border-2 border-neon-cyan-accessible rounded-lg p-6 flex flex-col items-center text-center ${className}`}
@@ -43,7 +45,7 @@ export function InfoCard({
                 />
             </div>
             <h3 className="text-heading-4 font-bold mb-3 text-neon-cyan">{title}</h3>
-            <p className="text-body text-white">{description}</p>
+            <p className="text-body text-white" dangerouslySetInnerHTML={{ __html: safeDescription }} />
         </motion.div>
     );
 } 

@@ -79,7 +79,7 @@ export default function Home() {
             <ul className="list-none space-y-3 text-white text-body">
               <li>✓ All ages and abilities welcome</li>
               <li>✓ Runners with strollers encouraged</li>
-              <li>✓ Walk, jog, or run - it's up to you!</li>
+              <li>✓ Walk, jog, or run - it&apos;s up to you!</li>
               <li>✓ Typically 5k distance (3.1 miles)</li>
               <li>✓ Choose from suggested routes or create your own</li>
               <li>✓ Social gathering afterwards at Foxhole</li>
@@ -107,7 +107,7 @@ export default function Home() {
       {/* Route Information */}
       <Section title="Suggested Routes" titleIcon={faMapLocationDot}>
         <p className="text-body text-white text-center mb-6">
-          We have two suggested 5k routes, but you're welcome to modify or create your own!
+          We have two suggested 5k routes, but you&apos;re welcome to modify or create your own!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
