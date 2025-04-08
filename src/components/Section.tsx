@@ -24,41 +24,37 @@ export function Section({
 
     const glowClass = isGlowing
         ? alternate
-            ? 'shadow-neon-pink'
-            : 'shadow-neon-cyan'
+            ? 'shadow-neon-pink-sm'
+            : 'shadow-neon-cyan-sm'
         : '';
 
     const borderClass = isGlowing
         ? alternate
-            ? 'border border-neon-pink-accessible'
-            : 'border border-neon-cyan-accessible'
+            ? 'border-2 border-neon-pink-accessible'
+            : 'border-2 border-neon-cyan-accessible'
         : '';
 
     const titleClass = alternate
-        ? 'text-neon-cyan text-shadow-neon-pink'
-        : 'text-neon-pink text-shadow-neon-cyan';
+        ? 'text-neon-cyan'
+        : 'text-neon-pink';
 
     return (
         <motion.section
             id={id}
-            className={`my-12 p-8 rounded-lg ${baseClass} ${glowClass} ${borderClass} ${className}`}
+            className={`my-16 p-8 rounded-lg ${baseClass} ${glowClass} ${borderClass} ${className}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
         >
             {title && (
-                <motion.h2
-                    className={`text-3xl font-mono font-bold mb-6 text-center ${titleClass}`}
-                    initial={{ opacity: 0, y: -10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
+                <h2
+                    className={`text-3xl font-mono font-bold mb-8 text-center ${titleClass}`}
                 >
                     {title}
-                </motion.h2>
+                </h2>
             )}
-            <div className="space-y-4">{children}</div>
+            <div className="space-y-6">{children}</div>
         </motion.section>
     );
 } 

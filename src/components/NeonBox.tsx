@@ -26,8 +26,8 @@ export function NeonBox({
             shadow: intensity === 'low'
                 ? 'shadow-neon-cyan-sm'
                 : intensity === 'high'
-                    ? 'shadow-neon-cyan drop-shadow-lg'
-                    : 'shadow-neon-cyan',
+                    ? 'shadow-neon-cyan'
+                    : 'shadow-neon-cyan-sm',
             text: 'text-neon-cyan',
             bg: 'bg-black bg-opacity-90',
         },
@@ -36,8 +36,8 @@ export function NeonBox({
             shadow: intensity === 'low'
                 ? 'shadow-neon-pink-sm'
                 : intensity === 'high'
-                    ? 'shadow-neon-pink drop-shadow-lg'
-                    : 'shadow-neon-pink',
+                    ? 'shadow-neon-pink'
+                    : 'shadow-neon-pink-sm',
             text: 'text-neon-pink',
             bg: 'bg-black bg-opacity-90',
         },
@@ -51,19 +51,21 @@ export function NeonBox({
 
     const { border, shadow, bg } = colorMap[color];
 
+    // Only use flicker animation if specifically requested
     const flickerClass = flicker ? 'animate-flicker' : '';
 
     const Component = animate ? motion.div : 'div';
 
     return (
         <Component
-            className={`border-3 ${border} ${shadow} ${flickerClass} rounded-lg p-6 my-6 ${bg} ${className}`}
+            className={`border-2 ${border} ${shadow} ${flickerClass} rounded-lg p-6 my-8 ${bg} ${className}`}
             {...(animate
                 ? {
                     initial: { opacity: 0, y: 20 },
                     animate: { opacity: 1, y: 0 },
                     transition: { duration: 0.5 },
-                    whileHover: { scale: 1.02, boxShadow: '0 0 20px #00ffff, 0 0 40px #00ffff' },
+                    // Simplified hover effect
+                    whileHover: { scale: 1.01 },
                 }
                 : {})}
         >

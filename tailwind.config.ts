@@ -9,19 +9,25 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Original colors for reference but adjusted for better contrast
+                // Simplified color palette with just cyan and pink as main colors
                 neon: {
                     pink: {
-                        DEFAULT: '#ff00ff', // Original magenta
-                        accessible: '#d600d6', // Darkened for better contrast
+                        DEFAULT: '#ff00ff', // Main pink
+                        accessible: '#d600d6', // Accessible version
                     },
                     cyan: {
-                        DEFAULT: '#00ffff', // Original cyan
-                        accessible: '#00b3b3', // Darkened for better contrast
+                        DEFAULT: '#00ffff', // Main cyan
+                        accessible: '#00b3b3', // Accessible version
                     },
+                    // Red removed as we're limiting to 2 main neon colors
                     black: '#000000',
                     'deep-black': '#050505',
                     white: '#ffffff',
+                    // Adding a neutral shade for non-emphasized elements
+                    neutral: {
+                        DEFAULT: '#aaaaaa',
+                        dim: '#666666',
+                    },
                 },
             },
             fontFamily: {
@@ -32,32 +38,36 @@ const config: Config = {
             borderWidth: {
                 '3': '3px',
             },
+            // Standardized box shadows - reduced intensity for less visual noise
             boxShadow: {
-                'neon-pink': '0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff',
-                'neon-cyan': '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff',
-                'neon-white': '0 0 10px #ffffff, 0 0 20px #ffffff',
-                'neon-pink-sm': '0 0 5px #ff00ff, 0 0 10px #ff00ff',
-                'neon-cyan-sm': '0 0 5px #00ffff, 0 0 10px #00ffff',
-                'neon-inset-pink': 'inset 0 0 10px #ff00ff, inset 0 0 20px #ff00ff',
-                'neon-inset-cyan': 'inset 0 0 10px #00ffff, inset 0 0 20px #00ffff',
+                'neon-pink': '0 0 8px #ff00ff, 0 0 16px #ff00ff',
+                'neon-cyan': '0 0 8px #00ffff, 0 0 16px #00ffff',
+                'neon-white': '0 0 8px #ffffff, 0 0 16px #ffffff',
+                'neon-pink-sm': '0 0 4px #ff00ff, 0 0 8px #ff00ff',
+                'neon-cyan-sm': '0 0 4px #00ffff, 0 0 8px #00ffff',
+                'neon-inset-pink': 'inset 0 0 5px #ff00ff, inset 0 0 10px #ff00ff',
+                'neon-inset-cyan': 'inset 0 0 5px #00ffff, inset 0 0 10px #00ffff',
             },
+            // Standardized text shadows - reduced intensity
             textShadow: {
-                'neon-pink': '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
-                'neon-cyan': '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
-                'neon-dual': '1px 1px #00ffff, -1px -1px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #00ffff',
+                'neon-pink': '0 0 4px #ff00ff, 0 0 8px #ff00ff',
+                'neon-cyan': '0 0 4px #00ffff, 0 0 8px #00ffff',
+                // Removed red text shadow as we're limiting to 2 main colors
+                'neon-dual': '1px 1px #00ffff, -1px -1px #ff00ff',
             },
             animation: {
-                'neon-pulse': 'neon-pulse 1.5s ease-in-out infinite alternate',
-                'flicker': 'flicker 6s linear infinite',
+                // Slowed down the animation for less distraction
+                'neon-pulse': 'neon-pulse 2.5s ease-in-out infinite alternate',
+                'flicker': 'flicker 8s linear infinite',
             },
             keyframes: {
                 'neon-pulse': {
-                    '0%': { opacity: '0.8' },
+                    '0%': { opacity: '0.85' },
                     '100%': { opacity: '1' },
                 },
                 'flicker': {
                     '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': { opacity: '1' },
-                    '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: '0.8' },
+                    '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: '0.85' },
                 },
             },
             spacing: {
@@ -75,19 +85,20 @@ const config: Config = {
         function ({ addUtilities }: { addUtilities: any }) {
             const newUtilities = {
                 '.text-shadow-neon-pink': {
-                    textShadow: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
+                    textShadow: '0 0 4px #ff00ff, 0 0 8px #ff00ff',
                 },
                 '.text-shadow-neon-cyan': {
-                    textShadow: '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
+                    textShadow: '0 0 4px #00ffff, 0 0 8px #00ffff',
                 },
+                // Removed red text shadow utility
                 '.text-shadow-neon-dual': {
-                    textShadow: '1px 1px #00ffff, -1px -1px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #00ffff',
+                    textShadow: '1px 1px #00ffff, -1px -1px #ff00ff',
                 },
                 '.text-glow-pink': {
-                    filter: 'drop-shadow(0 0 5px rgba(255, 0, 255, 0.7))',
+                    filter: 'drop-shadow(0 0 4px rgba(255, 0, 255, 0.7))',
                 },
                 '.text-glow-cyan': {
-                    filter: 'drop-shadow(0 0 5px rgba(0, 255, 255, 0.7))',
+                    filter: 'drop-shadow(0 0 4px rgba(0, 255, 255, 0.7))',
                 },
             };
             addUtilities(newUtilities);
