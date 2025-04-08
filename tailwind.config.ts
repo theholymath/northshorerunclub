@@ -31,9 +31,22 @@ const config: Config = {
                 },
             },
             fontFamily: {
+                // Define clear font families with consistent fallbacks
                 mono: ['"Courier New"', 'monospace'],
                 retro: ['"Press Start 2P"', 'cursive', 'monospace'],
                 modern: ['"Inter"', 'sans-serif'],
+                base: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            // Define consistent font sizes with appropriate line heights
+            fontSize: {
+                'heading-1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+                'heading-2': ['2rem', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
+                'heading-3': ['1.5rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
+                'heading-4': ['1.25rem', { lineHeight: '1.35', letterSpacing: '-0.005em' }],
+                'body-large': ['1.125rem', { lineHeight: '1.5' }],
+                'body': ['1rem', { lineHeight: '1.5' }],
+                'body-small': ['0.875rem', { lineHeight: '1.5' }],
+                'caption': ['0.75rem', { lineHeight: '1.5' }],
             },
             borderWidth: {
                 '3': '3px',

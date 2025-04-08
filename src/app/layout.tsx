@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'North Shore Run Club',
+  title: 'North Shore Pub Run',
   description: 'A running community for all levels of runners based in Shorewood, WI.',
   keywords: 'running club, Shorewood, Wisconsin, run, community, beer run, pub run',
   openGraph: {
-    title: 'North Shore Run Club',
+    title: 'North Shore Pub Run',
     description: 'A running community for all levels of runners based in Shorewood, WI.',
-    url: 'https://northshorerunclub.com',
-    siteName: 'North Shore Run Club',
+    url: 'https://northshorepubrun.com/',
+    siteName: 'North Shore Pub Run',
     locale: 'en_US',
     type: 'website',
   },

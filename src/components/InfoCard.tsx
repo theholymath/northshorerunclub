@@ -42,8 +42,8 @@ export function InfoCard({
                     className="object-cover"
                 />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-neon-cyan">{title}</h3>
-            <p className="text-white">{description}</p>
+            <h3 className="text-heading-4 font-bold mb-3 text-neon-cyan">{title}</h3>
+            <p className="text-body text-white">{description}</p>
         </motion.div>
     );
 } 

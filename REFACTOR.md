@@ -21,14 +21,15 @@ The current website effectively communicates the run club's purpose and informat
 - [x] Remove or archive outdated information (past events, old dates)
 - [x] Ensure the most important information appears "above the fold"
 
-### Phase 3: Typography Refinement
-- [ ] Establish consistent text sizes for headings (h1, h2, h3) and body text
-- [ ] Improve text contrast for better readability
-- [ ] Reduce variety of font styles (limit to 2-3 font families maximum)
-- [ ] Ensure proper spacing between text elements
-- [ ] Add emphasis only to the most important text elements
+### Phase 3: Typography Refinement ✅
+- [x] Establish consistent text sizes for headings (h1, h2, h3) and body text
+- [x] Improve text contrast for better readability
+- [x] Reduce variety of font styles (limit to 2-3 font families maximum)
+- [x] Ensure proper spacing between text elements
+- [x] Add emphasis only to the most important text elements
 
-### Phase 4: Content Organization
+### Phase 4: Content Organization ⚙️
+- [x] Add visual cues (icons) to reinforce different types of information
 - [ ] Reorganize content into logical groupings (event details, routes, about us)
 - [ ] Simplify the hero section to focus on next run details
 - [ ] Make route information more usable with clearer maps and descriptions
@@ -82,5 +83,22 @@ The current website effectively communicates the run club's purpose and informat
 - Improved the schedule display with a clear two-column layout
 - Enhanced route information with descriptive labels
 - Moved the weather widget to its own dedicated section
+
+### Phase 3: Typography Refinement (Completed)
+- Created a consistent typography system with standardized heading and body text sizes
+- Added proper font size classes (heading-1, heading-2, body-large, etc.) in Tailwind config
+- Implemented consistent line heights and letter spacing for better readability
+- Refined margins and padding around text elements
+- Set global typography defaults in CSS for consistent rendering
+- Added emphasis (bold) only to important information
+- Improved contrast between text and backgrounds
+- Standardized list styling and spacing
+
+### Phase 4: Content Organization (Partially Completed)
+- Added appropriate icons to reinforce different types of information (section headers, key details)
+- Used Font Awesome icons that match the neon aesthetic
+- Maintained visual consistency with icon sizing and placement
+- Enhanced section titles with matching icons to improve scannability
+- Added icons to the most critical information (time, date, location) for quick recognition
 
 This plan will be implemented step by step, with regular reviews to ensure we're maintaining the core personality of the site while improving its usability. 

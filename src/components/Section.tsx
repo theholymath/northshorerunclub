@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface SectionProps {
     children: React.ReactNode;
     title?: string;
+    titleIcon?: IconDefinition;
     id?: string;
     alternate?: boolean;
     className?: string;
@@ -15,6 +18,7 @@ interface SectionProps {
 export function Section({
     children,
     title,
+    titleIcon,
     id,
     alternate = false,
     className = '',
@@ -49,8 +53,9 @@ export function Section({
         >
             {title && (
                 <h2
-                    className={`text-3xl font-mono font-bold mb-8 text-center ${titleClass}`}
+                    className={`text-heading-2 font-mono font-bold mb-8 text-center ${titleClass} flex items-center justify-center gap-2`}
                 >
+                    {titleIcon && <FontAwesomeIcon icon={titleIcon} className="h-6 w-6" />}
                     {title}
                 </h2>
             )}

@@ -32,8 +32,69 @@
 body {
   background: #121224;
   color: var(--foreground);
-  font-family: 'Courier New', monospace;
+  font-family: 'Inter', system-ui, sans-serif;
   background-attachment: fixed;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* Improved typography defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Courier New', monospace;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: 1.25rem;
+  letter-spacing: -0.005em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Better spacing for lists */
+ul,
+ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Consistent link styling */
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 @keyframes neon-glow {
