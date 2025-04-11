@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import { Header } from '@/components/Header';
 import { Section } from '@/components/Section';
 import { NeonBox } from '@/components/NeonBox';
@@ -22,6 +23,15 @@ import {
 export default function Home() {
   return (
     <>
+      <Script id="mailerlite-universal" strategy="afterInteractive">
+        {`
+          (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+          .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+          n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+          (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+          ml('account', '1445563');
+        `}
+      </Script>
       <Header title="North Shore Pub Run" />
 
       {/* Hero Section - Primary Information */}
@@ -37,7 +47,7 @@ export default function Home() {
               <FontAwesomeIcon icon={faClock} className="h-6 w-6" /> Wednesdays at 6:15 PM
             </h2>
             <h3 className="text-heading-3 font-mono font-bold mb-4 text-white flex items-center justify-center gap-2">
-              <FontAwesomeIcon icon={faCalendarDays} className="h-5 w-5" /> First Run: April 22, 2025
+              <FontAwesomeIcon icon={faCalendarDays} className="h-5 w-5" /> First Run: April 23, 2025
             </h3>
             <p className="text-body-large font-mono mb-2 flex items-center justify-center gap-2">
               <FontAwesomeIcon icon={faLocationDot} className="h-5 w-5 text-neon-pink" />
@@ -102,6 +112,11 @@ export default function Home() {
             <p>Social Gathering</p>
           </div>
         </div>
+      </Section>
+
+      {/* Newsletter Subscription */}
+      <Section>
+        <div className="ml-embedded" data-form="GIjsaO"></div>
       </Section>
 
       {/* Route Information */}
@@ -188,6 +203,8 @@ export default function Home() {
           </div>
         </NeonBox>
       </Section>
+
+
     </>
   );
 }
