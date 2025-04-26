@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Shore Pub Run Flyer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+        }
+
+        .content {
+            border: 2px solid rgb(255, 105, 255);
+            border-radius: 20px;
+            padding: 40px 40px 100px 40px;
+            /* Increased bottom padding */
+            height: auto;
+            /* Let it size naturally */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(180, 180, 230, 0.5);
+            position: relative;
+            /* Add positioning context */
+            overflow: hidden;
+            /* Keep content inside */
+        }
+
+        .tear-off {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(100, 100, 100, 0.5);
+            position: absolute;
+            /* Position at bottom */
+            bottom: 20px;
+            /* Distance from bottom */
+            left: 40px;
+            right: 40px;
+        }
+
+        .flyer {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            padding: 0.5in;
+            box-sizing: border-box;
+            background-color: white;
+            background-image: radial-gradient(#e0e0ff 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 4em;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+            letter-spacing: 4px;
+            display: inline-block;
+            background: none;
+            line-height: 1.2;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* If you want to keep "PUB RUN" on a second line without the pink box */
+        .title::after {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            margin: 10px auto;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 255, 0.5) 30%, rgba(255, 0, 255, 0.5) 70%, transparent 100%);
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.8em;
+        }
+
+        .detail-icon {
+            margin-right: 15px;
+            color: #00a0a0;
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            color: #00a0a0;
+            font-weight: bold;
+        }
+
+        .location-name {
+            color: #00a0a0;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1.8em;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 105, 255, 0.5);
+            margin-top: 40px;
+        }
+
+        .run-icon {
+            font-size: 1.4em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7em;
+            color: black;
+            text-align: center;
+        }
+
+        .tear-off-text {
+            font-size: 1.2em;
+            flex: 1;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .flyer {
+                margin: 0;
+                padding: 0.25in;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flyer">
+        <div class="content">
+            <div class="header">
+                <h1 class="title">North Shore Pub Run</h1>
+            </div>
+
+            <div class="details">
+                <div class="detail-item">
+                    <span class="detail-icon">🕒</span>
+                    <span><span class="highlight">Every Wednesday</span><br>Meet @6, run @6:15 PM</span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <span>First Run: <span class="highlight">April 23, 2025</span></span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">📍</span>
+                    <span><span class="location-name">Foxhole Craft Beer Shop & Kitchen</span><br>4144 N Oakland Ave,
+                        Shorewood</span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p><span class="run-icon">🏃</span> A running community for all abilities.<br>Free to join, followed by
+                    drinks & socializing!</p>
+            </div>
+
+            <div class="tear-off">
+                <div class="qr-code">
+                    <img src="frame.png" alt="QR Code" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="tear-off-text">
+                    <p>Scan to visit our website<br>or go to <span class="highlight">https://northshorepubrun.com</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
