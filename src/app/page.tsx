@@ -44,7 +44,7 @@ export default function Home() {
           {/* Most important information highlighted */}
           <div className="bg-black/80 p-6 rounded-lg mb-8 border border-neon-cyan-accessible">
             <h2 className="text-heading-2 font-mono font-bold mb-4 text-neon-cyan animate-pulse flex items-center justify-center gap-2">
-              <FontAwesomeIcon icon={faClock} className="h-6 w-6" /> Wednesdays at 6:15 PM
+              <FontAwesomeIcon icon={faClock} className="h-6 w-6" /> Wednesdays at 6:00 PM
             </h2>
             <h3 className="text-heading-3 font-mono font-bold mb-4 text-white flex items-center justify-center gap-2">
               <FontAwesomeIcon icon={faCalendarDays} className="h-5 w-5" /> First Run: April 23, 2025
