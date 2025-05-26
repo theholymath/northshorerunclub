@@ -44,10 +44,10 @@ export default function Home() {
           {/* Most important information highlighted */}
           <div className="bg-black/80 p-6 rounded-lg mb-8 border border-neon-cyan-accessible">
             <h2 className="text-heading-2 font-mono font-bold mb-4 text-neon-cyan animate-pulse flex items-center justify-center gap-2">
-              <FontAwesomeIcon icon={faClock} className="h-6 w-6" /> Wednesdays at 6:00 PM
+              <FontAwesomeIcon icon={faClock} className="h-6 w-6" /> Wednesdays at 6:30 PM
             </h2>
             <h3 className="text-heading-3 font-mono font-bold mb-4 text-white flex items-center justify-center gap-2">
-              <FontAwesomeIcon icon={faCalendarDays} className="h-5 w-5" /> First Run: April 23, 2025
+              <FontAwesomeIcon icon={faCalendarDays} className="h-5 w-5" /> 2025 Season is off and running!
             </h3>
             <p className="text-body-large font-mono mb-2 flex items-center justify-center gap-2">
               <FontAwesomeIcon icon={faLocationDot} className="h-5 w-5 text-neon-pink" />
@@ -73,10 +73,10 @@ export default function Home() {
               <FontAwesomeIcon icon={faListCheck} className="h-5 w-5" /> JOINING US:
             </h3>
             <ol className="list-decimal list-inside space-y-3 text-white text-body">
-              <li>Arrive at Foxhole by 6:00 PM on Wednesdays</li>
+              <li>Arrive at Foxhole by 6:15 PM on Wednesdays</li>
               <li>Register once for the season (required for all runners)</li>
-              <li>Join the group photo at 6:10 PM</li>
-              <li>Run starts at 6:15 PM sharp!</li>
+              <li>Join the group photo at 6:25 PM</li>
+              <li>Run starts at 6:30 PM sharp!</li>
               <li>Return to Foxhole after your run</li>
               <li className="text-neon-pink font-bold">Stay for the AFTERPARTY!</li>
             </ol>
@@ -102,11 +102,11 @@ export default function Home() {
             <FontAwesomeIcon icon={faClock} className="h-5 w-5" /> Schedule:
           </p>
           <div className="grid grid-cols-2 gap-3 text-body text-white">
-            <p className="text-right font-bold">6:00 - 6:10 PM:</p>
+            <p className="text-right font-bold">6:15 - 6:20 PM:</p>
             <p>Arrival & Registration</p>
-            <p className="text-right font-bold">6:10 PM:</p>
+            <p className="text-right font-bold">6:25 PM:</p>
             <p>Group Photo</p>
-            <p className="text-right font-bold">6:15 PM:</p>
+            <p className="text-right font-bold">6:30 PM:</p>
             <p>Run Begins</p>
             <p className="text-right font-bold">7:00 PM+:</p>
             <p>Social Gathering</p>
