@@ -66,6 +66,21 @@ export function WeatherForecast() {
             <h3 className="text-2xl font-bold text-neon-pink mb-4">
                 Forecast for {formatDate(nextWednesday)} at 6 PM
             </h3>
+            {/* Show forecast type note */}
+            {data.forecastType === 'hourly' ? (
+                <div className="text-neon-cyan text-sm mb-2">
+                    This is an <b>hourly</b> forecast for Wednesday at 6pm.
+                </div>
+            ) : (
+                <div className="text-neon-cyan text-sm mb-2">
+                    This is a <b>daily</b> forecast for Wednesday (not specific to 6pm).
+                </div>
+            )}
+            {/* Optionally show actual forecast period */}
+            <div className="text-xs text-white mb-2">
+                Period: {data.startTime ? new Date(data.startTime).toLocaleString() : ''}
+                {data.endTime ? ` - ${new Date(data.endTime).toLocaleString()}` : ''}
+            </div>
             {data.icon && !imageError ? (
                 <div className="flex justify-center mb-2">
                     <Image
@@ -84,7 +99,7 @@ export function WeatherForecast() {
                         data.shortForecast && data.shortForecast.includes("Snow") ? "❄️" :
                             data.shortForecast && data.shortForecast.includes("Cloud") ? "☁️" :
                                 data.shortForecast && data.shortForecast.includes("Sun") ? "☀️" :
-                                    data.shortForecast && data.shortForecast.includes("Clear") ? "🌙" : "��️"}
+                                    data.shortForecast && data.shortForecast.includes("Clear") ? "🌙" : "️"}
                 </div>
             )}
             <div className="text-white text-xl">
