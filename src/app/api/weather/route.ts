@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 // Cache the weather forecast for 1 hour
 export const revalidate = 3600;
 
-// Define the structure of a weather period object from the API
+// Define the structure of a weather period object for the response
 interface WeatherPeriod {
     startTime: string;
     endTime: string;
@@ -11,78 +11,74 @@ interface WeatherPeriod {
     temperatureUnit: string;
     shortForecast: string;
     icon: string;
-    // Add other properties if needed
+}
+
+const LAT = 43.0892;
+const LON = -87.8876;
+const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
+const OWM_BASE = 'https://api.openweathermap.org/data/2.5/forecast';
+
+// Helper to get next Wednesday at 6pm
+function getNextWednesday6pm() {
+    const today = new Date();
+    const nextWednesday = new Date();
+    nextWednesday.setDate(today.getDate() + ((3 + 7 - today.getDay()) % 7)); // 3 is Wednesday
+    nextWednesday.setHours(18, 0, 0, 0); // 6 PM
+    return nextWednesday;
+}
+
+// Helper to convert Kelvin to Fahrenheit
+function kelvinToF(k: number) {
+    return Math.round((k - 273.15) * 9 / 5 + 32);
 }
 
 export async function GET() {
     try {
-        // Define headers required by the Weather.gov API
-        const headers = {
-            'User-Agent': '(northshorerunclub.com, contact@northshorerunclub.com)',
-            'Accept': 'application/geo+json'
-        };
-
-        // Step 1: Get the grid forecast endpoint for Shorewood, WI
-        const pointsResponse = await fetch('https://api.weather.gov/points/43.0892,-87.8876', {
-            headers,
-            next: { revalidate: 86400 } // Cache for 24 hours
-        });
-
-        if (!pointsResponse.ok) {
-            throw new Error(`Failed to get points data: ${pointsResponse.statusText}`);
+        if (!API_KEY) {
+            return NextResponse.json({ error: 'API key not set' }, { status: 500 });
         }
 
-        const pointsData = await pointsResponse.json();
-        const forecastUrl = pointsData.properties.forecast;
+        const nextWed = getNextWednesday6pm();
+        const url = `${OWM_BASE}?lat=${LAT}&lon=${LON}&appid=${API_KEY}`;
+        const owmRes = await fetch(url);
+        if (!owmRes.ok) {
+            throw new Error(`Failed to fetch OWM: ${owmRes.statusText}`);
+        }
+        const owmData = await owmRes.json();
 
-        // Step 2: Get the forecast data from the endpoint
-        const forecastResponse = await fetch(forecastUrl, {
-            headers,
-            next: { revalidate: 3600 } // Cache for 1 hour
-        });
+        let forecast: WeatherPeriod | null = null;
+        let sourceType: '3hourly' = '3hourly';
 
-        if (!forecastResponse.ok) {
-            throw new Error(`Failed to get forecast data: ${forecastResponse.statusText}`);
+        if (owmData.list && Array.isArray(owmData.list)) {
+            // Find the forecast entry closest to next Wednesday at 6pm
+            let closest = owmData.list[0];
+            let minDiff = Math.abs(new Date(closest.dt * 1000).getTime() - nextWed.getTime());
+            for (const entry of owmData.list) {
+                const entryDate = new Date(entry.dt * 1000);
+                const diff = Math.abs(entryDate.getTime() - nextWed.getTime());
+                if (diff < minDiff) {
+                    closest = entry;
+                    minDiff = diff;
+                }
+            }
+            const entryDate = new Date(closest.dt * 1000);
+            forecast = {
+                startTime: entryDate.toISOString(),
+                endTime: new Date(entryDate.getTime() + 3 * 60 * 60 * 1000).toISOString(),
+                temperature: kelvinToF(closest.main.temp),
+                temperatureUnit: 'F',
+                shortForecast: closest.weather[0]?.description || '',
+                icon: `https://openweathermap.org/img/wn/${closest.weather[0]?.icon}@2x.png`,
+            };
         }
 
-        const forecastData = await forecastResponse.json();
-        const periods = forecastData.properties.periods;
-
-        // Step 3: Find the forecast for the next Wednesday at 6 PM
-        const today = new Date();
-        // eslint-disable-next-line prefer-const
-        let nextWednesday = new Date();
-        nextWednesday.setDate(today.getDate() + ((3 + 7 - today.getDay()) % 7)); // Find next Wednesday (3 is Wednesday)
-        nextWednesday.setHours(18, 0, 0, 0); // Set time to 6 PM
-
-        // Step 4: Find the appropriate forecast period
-        // Using the same logic as the original implementation
-        let forecastPeriod = periods.find((period: WeatherPeriod) => {
-            const periodStart = new Date(period.startTime);
-            return periodStart.getDay() === nextWednesday.getDay() &&
-                periodStart.getHours() >= 12; // Find Wednesday evening
-        });
-
-        // If we didn't find an evening period on Wednesday, just use the first period
-        if (!forecastPeriod && periods.length > 0) {
-            forecastPeriod = periods[0];
+        if (!forecast) {
+            return NextResponse.json({ error: 'Forecast data not available' }, { status: 404 });
         }
 
-        if (!forecastPeriod) {
-            return NextResponse.json(
-                { error: 'Forecast data not available' },
-                { status: 404 }
-            );
-        }
-
-        // Return just the data we need
         return NextResponse.json({
-            temperature: forecastPeriod.temperature,
-            temperatureUnit: forecastPeriod.temperatureUnit,
-            shortForecast: forecastPeriod.shortForecast,
-            icon: forecastPeriod.icon,
-            startTime: forecastPeriod.startTime,
-            endTime: forecastPeriod.endTime,
+            ...forecast,
+            forecastType: sourceType,
         });
     } catch (error) {
         console.error('Error fetching the weather data:', error);
