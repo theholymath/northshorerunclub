@@ -47,7 +47,7 @@ export async function GET() {
         const owmData = await owmRes.json();
 
         let forecast: WeatherPeriod | null = null;
-        let sourceType: '3hourly' = '3hourly';
+        const sourceType = '3hourly';
 
         if (owmData.list && Array.isArray(owmData.list)) {
             // Find the forecast entry closest to next Wednesday at 6pm
